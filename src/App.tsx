@@ -8,7 +8,7 @@ import TodoList, {TaskType} from "./TodoList";
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
 function App() {
-    //BLL
+    //BLL:
     const TodoListTitle: string = 'What to learn';
 
     const [tasks, setTasks] = useState<Array<TaskType>>([
@@ -28,12 +28,24 @@ function App() {
     }
 
 
-    //UL
+    //UI:
+    let tasksForRender;
+    switch (filter) {
+        case "completed":
+            tasksForRender = tasks.filter(t => t.isDone === true)
+            break;
+        case 'active':
+            tasksForRender = tasks.filter(t => t.isDone === false)
+            break
+        default:
+            tasksForRender = tasks
+    }
+
     return (
         <div className="App">
             <TodoList
                 title={TodoListTitle}
-                tasks={tasks}
+                tasks={tasksForRender}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
             />
