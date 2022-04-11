@@ -42,7 +42,6 @@ function App() {
         setTasks([{id: v1(), title, isDone: false}, ...tasks])
     }
 
-
     //UI:
     let tasksForRender;
     switch (filter) {
