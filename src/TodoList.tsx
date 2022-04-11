@@ -48,7 +48,7 @@ const TodoList = (props: TodoListPropsType) => {
     const cangeFilre = (filter: FilterValuesType) => {
         return () => props.changeFilter(filter)
     }
-//hi
+
     return (
         <div>
             <h3>{props.title}</h3>
