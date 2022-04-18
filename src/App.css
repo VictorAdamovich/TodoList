@@ -6,3 +6,22 @@
 .App > div {
   margin-right: 50px;
 }
+
+.active-filter{
+  background-color: lightgreen;
+}
+
+.isDone{
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+.error{
+  border: 2px solid red;
+  outline: none;
+}
+.error-massage{
+  color: red;
+  font-weight: bolder;
+}
+

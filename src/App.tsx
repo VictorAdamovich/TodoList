@@ -2,15 +2,10 @@ import React, {useState} from 'react';
 import {v1} from 'uuid';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
-import * as assert from "assert";
 
-//GUI
-//CLI
-//CRUD
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
 function App() {
-    //BLL:
     const TodoListTitle: string = 'What to learn';
 
     const [tasks, setTasks] = useState<Array<TaskType>>([
@@ -29,42 +24,26 @@ function App() {
     }
 
     const addTask = (title: string) => {
-        // const newTask: TaskType = {
-        //     id: v1()
-        //     title: title
-        //     isDone: false
-        // }
-        // const copyTasks = [...tasks]
-        // copyTasks.push(newTask)
-        // setTasks(copyTasks)
-        //
-
         setTasks([{id: v1(), title, isDone: false}, ...tasks])
     }
 
-    //UI:
-    let tasksForRender;
-    switch (filter) {
-        case "completed":
-            tasksForRender = tasks.filter(t => t.isDone === true)
-            break;
-        case 'active':
-            tasksForRender = tasks.filter(t => t.isDone === false)
-            break
-        default:
-            tasksForRender = tasks
+    const changeTaskStatus = (taskID: string, isDone: boolean) => {
+        setTasks(tasks.map(t => t.id === taskID ? {...t, isDone: isDone} : t))
     }
+
 
     return (
         <div className="App">
             <TodoList
+                filter={filter}
                 title={TodoListTitle}
-                tasks={tasksForRender}
+                tasks={tasks}
+
                 addTask={addTask}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
+                changeTaskStatus={changeTaskStatus}
             />
-
         </div>
     );
 }
