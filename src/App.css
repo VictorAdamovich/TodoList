@@ -7,21 +7,18 @@
   margin-right: 50px;
 }
 
-.active-filter{
-  background-color: lightgreen;
+.error {
+  border: red 1px solid;
 }
 
-.isDone{
-  opacity: 0.5;
-  font-weight: bolder;
-}
-
-.error{
-  border: 2px solid red;
-  outline: none;
-}
-.error-massage{
+.error-message {
   color: red;
-  font-weight: bolder;
 }
 
+.active-filter {
+  background-color: aquamarine;
+}
+
+.is-done {
+  opacity: 0.5;
+}
